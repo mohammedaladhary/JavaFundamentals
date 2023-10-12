@@ -1,16 +1,19 @@
 package com.example.spring_data_jpa.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
+
 //Annotations(@Entity, @Table and @Id)
 @Entity //1
 @Table(name = "tbl_course") //2
 public class Course {
     @Id     //3
     private String courseCode;
+
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    private Set<Section> sections;
     private String courseName;
 
     public Course() {

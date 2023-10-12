@@ -8,7 +8,9 @@ import java.util.Objects;
 @Table(name = "tbl_section")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Section {
-
+    @OneToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
     @Id
     private String id;
 

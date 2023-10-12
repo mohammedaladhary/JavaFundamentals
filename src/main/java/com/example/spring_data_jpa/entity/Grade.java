@@ -6,7 +6,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "tbl_grade")
 public class Grade {
-
+    @OneToOne
+    @JoinColumn(name = "assignment_id")
+    private Assignment assignment;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
